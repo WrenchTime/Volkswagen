@@ -1107,6 +1107,7 @@
   "signals": [
     {"id": "VOLKSWAGEN_ODO_V2",      "path": "Trips", "fmt": { "len": 24, "max": 16777215,                       "unit": "kilometers" }, "name": "Odometer",               "suggestedMetric": "odometer"},
     {"id": "VOLKSWAGEN_ODO_ECM",     "path": "Trips", "fmt": { "len": 24, "max": 1048575,    "nullmax": 1048575, "unit": "kilometers" }, "name": "Odometer",               "suggestedMetric": "odometer"},
+    {"id": "VOLKSWAGEN_ODO_7E0_2",   "path": "Trips", "fmt": { "len": 24, "max": 16777215,   "nullmax": 1048575, "unit": "kilometers" }, "name": "Odometer",               "suggestedMetric": "odometer"},
     {"id": "VOLKSWAGEN_ODO_2_V2",    "path": "Trips", "fmt": { "len": 32, "max": 4294967295,                     "unit": "kilometers" }, "name": "Odometer (alternative)", "suggestedMetric": "odometer"},
     {"id": "VOLKSWAGEN_ODO_MILEAGE", "path": "Trips", "fmt": { "len": 24, "max": 16777215,                       "unit": "kilometers" }, "name": "Odometer, mileage"}
   ]},
@@ -3729,8 +3730,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "208D"}, "freq": 30,
   "signals": [
-    {"id": "VOLKSWAGEN_GPF_DIST_SINCE_REGEN", "path": "Trips", "fmt": { "len": 32, "max": 4294967, "div": 1000, "unit": "kilometers" }, "name": "Gasoline particulate filter distance since last regeneration"},
-    {"id": "VOLKSWAGEN_DIST_SINCE_REGEN",     "path": "Trips", "fmt": { "len": 16, "max": 6553.5,  "div": 10,   "unit": "kilometers" }, "name": "Distance since last regeneration"}
+    {"id": "VOLKSWAGEN_GPF_DIST_SINCE_REGEN", "path": "Trips", "fmt": { "len": 32, "max": 4294967, "div": 1000,                    "unit": "kilometers" }, "name": "Gasoline particulate filter distance since last regeneration"},
+    {"id": "VOLKSWAGEN_DIST_SINCE_REGEN",     "path": "Trips", "fmt": { "len": 16, "max": 6553.5,  "div": 10,   "nullmax": 6553.5, "unit": "kilometers" }, "name": "Distance since last regeneration"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2097"}, "freq": 1,
   "signals": [
@@ -4981,9 +4982,8 @@
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "101A"}, "freq": 30,
   "signals": [
-    {"id": "VOLKSWAGEN_PQ35_ODO_3",    "path": "Trips", "fmt": { "len": 24, "blsb": true,    "max": 16777215,                      "unit": "kilometers" },                             "name": "Odometer #3"},
-    {"id": "VOLKSWAGEN_ODO_MILEAGE_2", "path": "Trips", "fmt": { "len": 24, "max": 16777215,                  "unit": "kilometers" },                   "name": "Odometer, mileage 2"},
-    {"id": "VOLKSWAGEN_ODO_TCM_2",     "path": "Trips", "fmt": { "len": 24, "blsb": true,    "max": 16777215,                      "unit": "kilometers" },                             "name": "Odometer (TCM #2)", "suggestedMetric": "odometer"}
+    {"id": "VOLKSWAGEN_PQ35_ODO_3",    "path": "Trips", "fmt": { "len": 24, "blsb": true,    "max": 16777215,                      "unit": "kilometers" },                             "name": "Odometer #3", "suggestedMetric": "odometer"},
+    {"id": "VOLKSWAGEN_ODO_MILEAGE_2", "path": "Trips", "fmt": { "len": 24, "max": 16777215,                  "unit": "kilometers" },                   "name": "Odometer, mileage 2"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "1021"}, "freq": 0.25,
   "signals": [
