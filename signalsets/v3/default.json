@@ -596,7 +596,8 @@
   ]},
 { "hdr": "714", "dbg": true, "cmd": {"22": "2613"}, "freq": 30,
   "signals": [
-    {"id": "VOLKSWAGEN_IAT", "path": "Climate", "fmt": { "len": 16, "max": 255, "div": 10, "unit": "celsius" }, "name": "Interior air temperature"}
+    {"id": "VOLKSWAGEN_IAT",     "path": "Climate", "fmt": { "len": 16, "max": 255,  "div": 10, "unit": "celsius" }, "name": "Interior air temperature"},
+    {"id": "VOLKSWAGEN_CABIN_T", "path": "Engine",  "fmt": { "len": 16, "max": 6553, "div": 10, "unit": "celsius" }, "name": "Cabin temperature"}
   ]},
 { "hdr": "714", "rax": "77E", "fcm1": true, "dbg": true, "cmd": {"22": "0530"}, "freq": 0.5,
   "signals": [
@@ -856,7 +857,7 @@
   ]},
 { "hdr": "744", "rax": "7AE", "fcm1": true, "dbg": true, "cmd": {"22": "15E2"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_CHRGR_COOLANT_T", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Temperature, Charger coolant"}
+    {"id": "VOLKSWAGEN_CHRGR_COOLANT_T", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Temperature, charger coolant"}
   ]},
 { "hdr": "744", "rax": "7AE", "fcm1": true, "dbg": true, "cmd": {"22": "15EE"}, "freq": 1,
   "signals": [
@@ -899,8 +900,8 @@
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "0800"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_AC_COMPRESSOR_PWR_ACT", "path": "Climate", "fmt": {"bix": 40, "len": 16, "max": 65535,                   "unit": "watts" }, "name": "A/C compressor power, actual"},
-    {"id": "VOLKSWAGEN_AC_CMPR_PWR_ACT",       "path": "Climate", "fmt": {"bix": 40, "len": 16, "max": 65535, "nullmax": 65535, "unit": "watts" }, "name": "A/C compressor power, actual"}
+    {"id": "VOLKSWAGEN_AC_COMPRESSOR_PWR_ACT", "path": "Climate", "fmt": {"bix": 40, "len": 16, "max": 65535, "nullmax": 65535, "unit": "watts" }, "name": "A/C compressor power, actual"},
+    {"id": "VOLKSWAGEN_AC_CMPR_PWR_ACT",       "path": "Climate", "fmt": {"bix": 40, "len": 16, "max": 65535,                   "unit": "watts" }, "name": "A/C compressor power, actual"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "2603"}, "freq": 1,
   "signals": [
@@ -913,15 +914,16 @@
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "2605"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_REFRIGERANT_PRESSURE", "path": "Climate", "fmt": { "len": 8, "max": 51,             "div": 5, "unit": "bars" }, "name": "Refrigerant pressure"},
-    {"id": "VOLKSWAGEN_CLIMATE_REFRIG_P",     "path": "Engine",  "fmt": { "len": 8, "max": 51, "mul": 0.2,           "unit": "bars" }, "name": "Refrigerant pressure"}
+    {"id": "VOLKSWAGEN_REFRIGERANT_PRESSURE", "path": "Climate", "fmt": { "len": 8, "max": 51,             "div": 5,                "unit": "bars" }, "name": "Refrigerant pressure"},
+    {"id": "VOLKSWAGEN_CLIMATE_REFRIG_P",     "path": "Engine",  "fmt": { "len": 8, "max": 51, "mul": 0.2,                          "unit": "bars" }, "name": "Refrigerant pressure"},
+    {"id": "VOLKSWAGEN_REFRIG_P",             "path": "Climate", "fmt": { "len": 8, "max": 51,             "div": 5, "nullmax": 51, "unit": "bars" }, "name": "Refrigerant pressure"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "2606"}, "freq": 1,
   "signals": [
     {"id": "VOLKSWAGEN_RADIATOR_FAN_ACTUAL_DUTY", "path": "Climate", "fmt": {           "len": 8,  "max": 100,    "mul": 0.4,             "unit": "percent" }, "name": "Radiator fan actual duty"},
+    {"id": "VOLKSWAGEN_RAD_FAN_ACT_DUTY",         "path": "Climate", "fmt": {           "len": 8,  "max": 100,    "mul": 2,   "div": 5,   "unit": "percent" }, "name": "Radiator fan actual duty"},
     {"id": "VOLKSWAGEN_HVAC_FAN1_ACT",            "path": "Climate", "fmt": {           "len": 16, "max": 6553.5,             "div": 10,  "unit": "percent" }, "name": "Radiator fan actual #1"},
     {"id": "VOLKSWAGEN_CLIMATE_RAD_FAN_ACT_DUTY", "path": "Engine",  "fmt": {           "len": 8,  "max": 100,                "div": 2.5, "unit": "percent" }, "name": "Radiator fan actual duty"},
-    {"id": "VOLKSWAGEN_RAD_FAN_ACT_DUTY",         "path": "Climate", "fmt": {           "len": 8,  "max": 100,    "mul": 2,   "div": 5,   "unit": "percent" }, "name": "Radiator fan actual duty"},
     {"id": "VOLKSWAGEN_HVAC_FAN2_ACT",            "path": "Climate", "fmt": {"bix": 16, "len": 16, "max": 6553.5,             "div": 10,  "unit": "percent" }, "name": "Radiator fan actual #2"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "2607"}, "freq": 1,
@@ -934,10 +936,10 @@
   "signals": [
     {"id": "VOLKSWAGEN_AAT_FROMCABIN",  "path": "Climate", "fmt": { "len": 8,  "max": 63.5,   "min": -64,                 "div": 2,              "sign": true,                  "unit": "celsius" }, "name": "Outside temperature, from cabin"},
     {"id": "VOLKSWAGEN_AAT_V2",         "path": "Climate", "fmt": { "len": 8,  "max": 63.5,   "min": -64,     "mul": 0.5,                        "sign": true,                  "unit": "celsius" }, "name": "Outside temperature"},
+    {"id": "VOLKSWAGEN_AAT_V2",         "path": "Climate", "fmt": { "len": 8,  "max": 77.5,   "min": -50,                 "div": 2,  "add": -50,               "nullmax": 77.5, "unit": "celsius" }, "name": "Outside temperature"},
     {"id": "VOLKSWAGEN_AAT_746",        "path": "Climate", "fmt": { "len": 8,  "max": 77.5,   "min": -50,                 "div": 2,  "add": -50,                                "unit": "celsius" }, "name": "Outside temperature"},
     {"id": "VOLKSWAGEN_HVAC_OUTSIDE_T", "path": "Climate", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8,             "div": 10,             "sign": true,                  "unit": "celsius" }, "name": "Outside temperature"},
-    {"id": "VOLKSWAGEN_TRON_AAT",       "path": "Climate", "fmt": { "len": 16, "max": 100,    "min": -3276.8,             "div": 10,             "sign": true, "nullmax": 100,  "unit": "celsius" }, "name": "Outside temperature"},
-    {"id": "VOLKSWAGEN_AAT_V2",         "path": "Climate", "fmt": { "len": 8,  "max": 77.5,   "min": -50,                 "div": 2,  "add": -50,               "nullmax": 77.5, "unit": "celsius" }, "name": "Outside temperature"}
+    {"id": "VOLKSWAGEN_TRON_AAT",       "path": "Climate", "fmt": { "len": 16, "max": 100,    "min": -3276.8,             "div": 10,             "sign": true, "nullmax": 100,  "unit": "celsius" }, "name": "Outside temperature"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "260A"}, "freq": 5,
   "signals": [
@@ -969,14 +971,14 @@
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "2613"}, "freq": 1,
   "signals": [
     {"id": "VOLKSWAGEN_IAT_CABIN",  "path": "Climate", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8,             "div": 10,  "sign": true, "unit": "celsius" }, "name": "Cabin temperature"},
-    {"id": "VOLKSWAGEN_CABIN_T",    "path": "Engine",  "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "mul": 0.1,             "sign": true, "unit": "celsius" }, "name": "Cabin temperature"},
+    {"id": "VOLKSWAGEN_CABIN_T_V2", "path": "Engine",  "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "mul": 0.1,             "sign": true, "unit": "celsius" }, "name": "Cabin temperature"},
     {"id": "VOLKSWAGEN_C7_CABIN_T", "path": "Engine",  "fmt": { "len": 16, "max": 127.99, "min": -128,                "div": 256, "sign": true, "unit": "celsius" }, "name": "Cabin temperature"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "261E"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_RECIRC_FLAP_ACT_STEPS", "path": "Climate", "fmt": {           "len": 16, "max": 65535,                       "unit": "scalar"  }, "name": "Recirculation flap, actual steps"},
-    {"id": "VOLKSWAGEN_MQB_RECIRC_FLAP_ACT",   "path": "Climate", "fmt": {"bix": 16, "len": 8,  "max": 100,               "div": 2, "unit": "percent" }, "name": "Recirculation flap actual position"},
-    {"id": "VOLKSWAGEN_RECIRC_FLAP_ACT_PCT",   "path": "Climate", "fmt": {"bix": 16, "len": 8,  "max": 100,   "mul": 0.5,           "unit": "percent" }, "name": "Recirculation flap, actual"}
+    {"id": "VOLKSWAGEN_RECIRC_FLAP_ACT_STEPS", "path": "Climate", "fmt": {           "len": 16, "max": 65535,                                         "unit": "scalar"  }, "name": "Recirculation flap, actual steps"},
+    {"id": "VOLKSWAGEN_MQB_RECIRC_FLAP_ACT",   "path": "Climate", "fmt": {"bix": 16, "len": 8,  "max": 100,               "div": 2,                   "unit": "percent" }, "name": "Recirculation flap actual position"},
+    {"id": "VOLKSWAGEN_RECIRC_FLAP_ACT_PCT",   "path": "Climate", "fmt": {"bix": 16, "len": 8,  "max": 127.5, "mul": 0.5,           "nullmax": 127.5, "unit": "percent" }, "name": "Recirculation flap, actual"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "261F"}, "freq": 1,
   "signals": [
@@ -992,13 +994,15 @@
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "2622"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_FRONT_LEFT_T_FLAP_ACTUAL_VALUE", "path": "Climate", "fmt": {"bix": 16, "len": 8, "max": 100,             "div": 2, "unit": "percent" }, "name": "Front left temperature flap actual value"},
-    {"id": "VOLKSWAGEN_CLIMATE_FR_L_T_FLP_ACT_VALUE",   "path": "Engine",  "fmt": {"bix": 16, "len": 8, "max": 100, "mul": 0.5,           "unit": "percent" }, "name": "Front left temperature flap actual value"}
+    {"id": "VOLKSWAGEN_FRONT_LEFT_T_FLAP_ACTUAL_VALUE", "path": "Climate", "fmt": {"bix": 16, "len": 8, "max": 100,               "div": 2,                   "unit": "percent" }, "name": "Front left temperature flap actual value"},
+    {"id": "VOLKSWAGEN_CLIMATE_FR_L_T_FLP_ACT_VALUE",   "path": "Engine",  "fmt": {"bix": 16, "len": 8, "max": 100,   "mul": 0.5,                             "unit": "percent" }, "name": "Front left temperature flap actual value"},
+    {"id": "VOLKSWAGEN_FRONT_LEFT_T_FLAP_ACT",          "path": "Engine",  "fmt": {"bix": 16, "len": 8, "max": 127.5, "mul": 0.5,           "nullmax": 127.5, "unit": "percent" }, "name": "Front left temperature flap actual"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "2626"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_FRONT_RIGHT_T_FLAP_ACTUAL_VALUE", "path": "Climate", "fmt": {"bix": 16, "len": 8, "max": 100,             "div": 2, "unit": "percent" }, "name": "Front right temperature flap actual value"},
-    {"id": "VOLKSWAGEN_CLIMATE_FR_R_T_FLP_ACT_VALUE",    "path": "Engine",  "fmt": {"bix": 16, "len": 8, "max": 100, "mul": 0.5,           "unit": "percent" }, "name": "Front right temperature flap actual value"}
+    {"id": "VOLKSWAGEN_FRONT_RIGHT_T_FLAP_ACTUAL_VALUE", "path": "Climate", "fmt": {"bix": 16, "len": 8, "max": 100,               "div": 2,                   "unit": "percent" }, "name": "Front right temperature flap actual value"},
+    {"id": "VOLKSWAGEN_CLIMATE_FR_R_T_FLP_ACT_VALUE",    "path": "Engine",  "fmt": {"bix": 16, "len": 8, "max": 100,   "mul": 0.5,                             "unit": "percent" }, "name": "Front right temperature flap actual value"},
+    {"id": "VOLKSWAGEN_FRONT_RIGHT_T_FLAP_ACT",          "path": "Engine",  "fmt": {"bix": 16, "len": 8, "max": 127.5, "mul": 0.5,           "nullmax": 127.5, "unit": "percent" }, "name": "Front right temperature flap actual"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "din": "03", "dbg": true, "cmd": {"22": "263D"}, "freq": 5,
   "signals": [
@@ -1021,7 +1025,7 @@
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "42DB"}, "freq": 5,
   "signals": [
     {"id": "VOLKSWAGEN_CABIN_CO2",            "path": "Climate", "fmt": {"bix": 8, "len": 8, "max": 25500, "mul": 100,                   "unit": "scalar" }, "name": "CO2 content interior"},
-    {"id": "VOLKSWAGEN_CO2_CONTENT_INTERIOR", "path": "Climate", "fmt": {"bix": 8, "len": 8, "max": 25500, "mul": 100, "nullmax": 25500, "unit": "scalar" }, "name": "CO2 content interior"}
+    {"id": "VOLKSWAGEN_CO2_CONTENT_INTERIOR", "path": "Climate", "fmt": {"bix": 8, "len": 8, "max": 25400, "mul": 100, "nullmax": 25400, "unit": "scalar" }, "name": "CO2 content interior"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "482B"}, "freq": 1,
   "signals": [
@@ -1029,9 +1033,9 @@
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "4EEF"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_AC_REFRIG_P_SENS1",     "path": "Climate", "fmt": {           "len": 16, "max": 576.708,             "mul": 88, "div": 10000,             "unit": "bars"    }, "name": "A/C refrigerant pressure, sensor 1"},
-    {"id": "VOLKSWAGEN_AC_REFRIG_T_SENS1",     "path": "Climate", "fmt": {"bix": 16, "len": 16, "max": 6513.5,  "min": -40, "mul": 10, "div": 100,   "add": -40, "unit": "celsius" }, "name": "A/C refrigerant temperature, sensor 1"},
-    {"id": "VOLKSWAGEN_AC_REFRIG_T_SENS1_INT", "path": "Climate", "fmt": {"bix": 32, "len": 16, "max": 6513.5,  "min": -40, "mul": 10, "div": 100,   "add": -40, "unit": "celsius" }, "name": "A/C refrigerant temperature, sensor 1 interior"}
+    {"id": "VOLKSWAGEN_AC_REFRIG_P_SENS1",     "path": "Climate", "fmt": {           "len": 16, "max": 576.708,             "mul": 88, "div": 10000,                               "unit": "bars"    }, "name": "A/C refrigerant pressure, sensor 1"},
+    {"id": "VOLKSWAGEN_AC_REFRIG_T_SENS1",     "path": "Climate", "fmt": {"bix": 16, "len": 16, "max": 369.4,   "min": -40, "mul": 10, "div": 100,   "add": -40, "nullmax": 369.4, "unit": "celsius" }, "name": "A/C refrigerant temperature, sensor 1"},
+    {"id": "VOLKSWAGEN_AC_REFRIG_T_SENS1_INT", "path": "Climate", "fmt": {"bix": 32, "len": 16, "max": 369.4,   "min": -40, "mul": 10, "div": 100,   "add": -40, "nullmax": 369.4, "unit": "celsius" }, "name": "A/C refrigerant temperature, sensor 1 interior"}
   ]},
 { "hdr": "746", "rax": "7B0", "fcm1": true, "dbg": true, "cmd": {"22": "F449"}, "freq": 1,
   "signals": [
@@ -7150,8 +7154,9 @@
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1E3D"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 200, "min": -200, "div": 4, "add": -511, "unit": "amps" }, "name": "HV battery current"},
-    {"id": "VOLKSWAGEN_HVBAT_I",       "path": "Battery", "fmt": { "len": 16, "max": 200, "min": -200, "div": 4, "add": -511, "unit": "amps" }, "name": "HV battery current", "suggestedMetric": "tractionBatteryCurrent"}
+    {"id": "VOLKSWAGEN_HVBAT_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 200,      "min": -200, "div": 4, "add": -511, "unit": "amps"   }, "name": "HV battery current"},
+    {"id": "VOLKSWAGEN_HVBAT_I",       "path": "Battery", "fmt": { "len": 16, "max": 200,      "min": -200, "div": 4, "add": -511, "unit": "amps"   }, "name": "HV battery current",      "suggestedMetric": "tractionBatteryCurrent"},
+    {"id": "VOLKSWAGEN_HVBAT_I_RAW",   "path": "Battery", "fmt": { "len": 24, "max": 16777215,                                     "unit": "scalar" }, "name": "HV battery current, raw"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1E40"}, "freq": 30,
   "signals": [
@@ -7563,55 +7568,68 @@
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EAE"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_1", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 1"}
+    {"id": "VOLKSWAGEN_HVBAT_T_1", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 1"},
+    {"id": "VOLKSWAGEN_T_SENS_1",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 1"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EAF"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_2", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 2"}
+    {"id": "VOLKSWAGEN_HVBAT_T_2", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 2"},
+    {"id": "VOLKSWAGEN_T_SENS_2",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 2"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB0"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_3", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 3"}
+    {"id": "VOLKSWAGEN_HVBAT_T_3", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 3"},
+    {"id": "VOLKSWAGEN_T_SENS_3",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 3"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB1"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_4", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 4"}
+    {"id": "VOLKSWAGEN_HVBAT_T_4", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 4"},
+    {"id": "VOLKSWAGEN_T_SENS_4",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 4"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB2"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_5", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 5"}
+    {"id": "VOLKSWAGEN_HVBAT_T_5", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 5"},
+    {"id": "VOLKSWAGEN_T_SENS_5",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 5"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB3"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_6", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 6"}
+    {"id": "VOLKSWAGEN_HVBAT_T_6", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 6"},
+    {"id": "VOLKSWAGEN_T_SENS_6",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 6"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB4"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_7", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 7"}
+    {"id": "VOLKSWAGEN_HVBAT_T_7", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 7"},
+    {"id": "VOLKSWAGEN_T_SENS_7",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 7"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB5"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_8", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 8"}
+    {"id": "VOLKSWAGEN_HVBAT_T_8", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 8"},
+    {"id": "VOLKSWAGEN_T_SENS_8",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 8"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB6"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_9", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 9"}
+    {"id": "VOLKSWAGEN_HVBAT_T_9", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 9"},
+    {"id": "VOLKSWAGEN_T_SENS_9",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 9"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB7"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_10", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 10"}
+    {"id": "VOLKSWAGEN_HVBAT_T_10", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 10"},
+    {"id": "VOLKSWAGEN_T_SENS_10",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 10"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB8"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_11", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 11"}
+    {"id": "VOLKSWAGEN_HVBAT_T_11", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 11"},
+    {"id": "VOLKSWAGEN_T_SENS_11",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 11"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EB9"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_12", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 12"}
+    {"id": "VOLKSWAGEN_HVBAT_T_12", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 12"},
+    {"id": "VOLKSWAGEN_T_SENS_12",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 12"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EBA"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_13", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 13"}
+    {"id": "VOLKSWAGEN_HVBAT_T_13", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 13"},
+    {"id": "VOLKSWAGEN_T_SENS_13",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 13"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EBB"}, "freq": 5,
   "signals": [
@@ -7619,11 +7637,13 @@
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EBC"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_15", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 15"}
+    {"id": "VOLKSWAGEN_HVBAT_T_15", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 15"},
+    {"id": "VOLKSWAGEN_T_SENS_15",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 15"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "1EBD"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_16", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 16"}
+    {"id": "VOLKSWAGEN_HVBAT_T_16", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 16"},
+    {"id": "VOLKSWAGEN_T_SENS_16",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 16"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "2A0B"}, "freq": 5,
   "signals": [
@@ -7655,12 +7675,14 @@
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "51E0"}, "freq": 30,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_SOH",        "path": "Battery", "fmt": { "len": 16, "max": 100,  "min": -1798.574, "mul": 0.127, "add": -1798.574, "unit": "percent" }, "name": "HV battery health", "suggestedMetric": "stateOfHealth"},
-    {"id": "VOLKSWAGEN_E_TRON_HVBAT_SOH", "path": "Battery", "fmt": { "len": 16, "max": 6524, "min": -1798.574, "mul": 0.127, "add": -1798.574, "unit": "percent" }, "name": "HV battery health", "suggestedMetric": "stateOfHealth"}
+    {"id": "VOLKSWAGEN_HVBAT_SOH",        "path": "Battery", "fmt": { "len": 16, "max": 100,  "min": -1798.574, "mul": 0.127,            "add": -1798.574,               "unit": "percent" }, "name": "HV battery health", "suggestedMetric": "stateOfHealth"},
+    {"id": "VOLKSWAGEN_HVBAT_SOH_J12",    "path": "Battery", "fmt": { "len": 16, "max": 100,                                  "div": 10, "add": -1369.5,   "nullmin": 0, "unit": "percent" }, "name": "HV battery health", "suggestedMetric": "stateOfHealth"},
+    {"id": "VOLKSWAGEN_E_TRON_HVBAT_SOH", "path": "Battery", "fmt": { "len": 16, "max": 6524, "min": -1798.574, "mul": 0.127,            "add": -1798.574,               "unit": "percent" }, "name": "HV battery health", "suggestedMetric": "stateOfHealth"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "7425"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_T_17", "path": "Battery", "fmt": { "len": 16, "max": 1023.984, "div": 64, "unit": "celsius" }, "name": "HV battery temperature sensor 17"}
+    {"id": "VOLKSWAGEN_HVBAT_T_17", "path": "Battery", "fmt": { "len": 16, "max": 1023.984,              "div": 64,               "unit": "celsius" }, "name": "HV battery temperature sensor 17"},
+    {"id": "VOLKSWAGEN_T_SENS_17",  "path": "Engine",  "fmt": { "len": 16, "max": 511,      "min": -512, "div": 64, "sign": true, "unit": "celsius" }, "name": "Temperature sensor 17"}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "7448"}, "freq": 1,
   "signals": [
@@ -8115,7 +8137,7 @@
   ]},
 { "hdr": "FC00", "rax": "FE0076", "pri": "17", "tst": "76", "dbg": true, "cmd": {"22": "43B8"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_DCDC_T_COOL", "path": "Battery", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10, "sign": true, "unit": "celsius" }, "name": "Temperature, DC-DC converter coolant"}
+    {"id": "VOLKSWAGEN_DCDC_T_COOL", "path": "Battery", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10, "sign": true, "unit": "celsius" }, "name": "DC-DC converter coolant temperature"}
   ]},
 { "hdr": "FC00", "rax": "FE0076", "pri": "17", "fcm1": true, "dbg": true, "cmd": {"22": "4490"}, "freq": 5,
   "signals": [
@@ -8180,7 +8202,7 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "fcm1": true, "dbg": true, "cmd": {"22": "02BD"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_BMS_ODO", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer, BMS"}
+    {"id": "VOLKSWAGEN_BMS_ODO", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer, battery management system"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7C", "dbg": true, "cmd": {"22": "0308"}, "freq": 1,
   "signals": [
@@ -8236,7 +8258,7 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1622"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_ECU_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "ECU temperature"}
+    {"id": "VOLKSWAGEN_HVBAT_ECU_T", "path": "Battery", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Battery controller temperature"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1623"}, "freq": 5,
   "signals": [
@@ -8248,7 +8270,7 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "189B"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_AFTER_CONTACTS_V", "path": "Battery", "fmt": { "len": 16, "max": 31767.5, "min": -1000, "mul": 0.5, "add": -1000, "unit": "volts" }, "name": "HV battery after contacts voltage"}
+    {"id": "VOLKSWAGEN_HVBAT_AFTER_CONTACTS_V", "path": "Battery", "fmt": { "len": 16, "max": 31767.5, "min": -1000, "div": 2, "add": -1000, "unit": "volts" }, "name": "HV battery after contacts voltage"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "189D"}, "freq": 1,
   "signals": [
@@ -8286,19 +8308,19 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E33"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX",         "path": "Battery", "fmt": {           "len": 16, "max": 15.997, "mul": 2441, "div": 10000, "unit": "volts"  }, "name": "HV battery cell voltage, maximum"},
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX_V2",      "path": "Battery", "fmt": {           "len": 16, "max": 15.999,              "div": 4096,  "unit": "volts"  }, "name": "HV battery cell voltage, maximum"},
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX_2026",    "path": "Battery", "fmt": {           "len": 16, "max": 6.5535,              "div": 10000, "unit": "volts"  }, "name": "HV battery cell voltage, maximum"},
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX_ID",      "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 65535,                             "unit": "scalar" }, "name": "HV battery cell voltage max, ID"},
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX_ID_2026", "path": "Battery", "fmt": {"bix": 16, "len": 8,  "max": 255,                               "unit": "scalar" }, "name": "HV battery cell voltage max, ID"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX",         "path": "Battery", "fmt": {           "len": 16, "max": 15.9997, "div": 4096,  "unit": "volts"  }, "name": "HV battery cell voltage, maximum"},
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX_V2",      "path": "Battery", "fmt": {           "len": 16, "max": 15.999,  "div": 4096,  "unit": "volts"  }, "name": "HV battery cell voltage, maximum"},
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX_2026",    "path": "Battery", "fmt": {           "len": 16, "max": 6.5535,  "div": 10000, "unit": "volts"  }, "name": "HV battery cell voltage, maximum"},
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX_ID",      "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 65535,                 "unit": "scalar" }, "name": "HV battery cell voltage max, ID"},
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MAX_ID_2026", "path": "Battery", "fmt": {"bix": 16, "len": 8,  "max": 255,                   "unit": "scalar" }, "name": "HV battery cell voltage max, ID"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E34"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN",         "path": "Battery", "fmt": {           "len": 16, "max": 15.997, "mul": 2441, "div": 10000, "unit": "volts"  }, "name": "HV battery cell voltage, minimum"},
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN_V2",      "path": "Battery", "fmt": {           "len": 16, "max": 15.999,              "div": 4096,  "unit": "volts"  }, "name": "HV battery cell voltage, minimum"},
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN_2026",    "path": "Battery", "fmt": {           "len": 16, "max": 6.5535,              "div": 10000, "unit": "volts"  }, "name": "HV battery cell voltage, minimum"},
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN_ID",      "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 65535,                             "unit": "scalar" }, "name": "HV battery cell voltage min, ID"},
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN_ID_2026", "path": "Battery", "fmt": {"bix": 16, "len": 8,  "max": 255,                               "unit": "scalar" }, "name": "HV battery cell voltage min, ID"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN",         "path": "Battery", "fmt": {           "len": 16, "max": 15.9997, "div": 4096,  "unit": "volts"  }, "name": "HV battery cell voltage, minimum"},
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN_V2",      "path": "Battery", "fmt": {           "len": 16, "max": 15.999,  "div": 4096,  "unit": "volts"  }, "name": "HV battery cell voltage, minimum"},
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN_2026",    "path": "Battery", "fmt": {           "len": 16, "max": 6.5535,  "div": 10000, "unit": "volts"  }, "name": "HV battery cell voltage, minimum"},
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN_ID",      "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 65535,                 "unit": "scalar" }, "name": "HV battery cell voltage min, ID"},
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_MIN_ID_2026", "path": "Battery", "fmt": {"bix": 16, "len": 8,  "max": 255,                   "unit": "scalar" }, "name": "HV battery cell voltage min, ID"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E36"}, "freq": 1,
   "signals": [
@@ -8318,443 +8340,443 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E3C"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_V_CELLS_SUM", "path": "Battery", "fmt": { "len": 32, "max": 524287.99, "min": -524288, "mul": 244140625, "div": 1000000000, "sign": true, "unit": "volts" }, "name": "Battery voltage, sum of all cells"}
+    {"id": "VOLKSWAGEN_HVBAT_V_CELLS_SUM", "path": "Battery", "fmt": { "len": 32, "max": 524287.9997, "min": -524288, "div": 4096, "sign": true, "unit": "volts" }, "name": "Battery voltage, sum of all cells"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E3E"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_I_DC_2", "path": "Battery", "fmt": { "len": 32, "max": 42948172.950000003, "min": -1500, "div": 100, "add": -1500, "unit": "amps" }, "name": "Battery current, DC (alt)"}
+    {"id": "VOLKSWAGEN_HVBAT_I_DC_2", "path": "Battery", "fmt": { "len": 32, "max": 42948172.950000003, "min": -1500, "div": 100, "add": -1500, "unit": "amps" }, "name": "Battery current, DC, alternate"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E40"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_001", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #1"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_001", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #1"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E41"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_002", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #2"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_002", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #2"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E42"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_003", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #3"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_003", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #3"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E43"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_004", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #4"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_004", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #4"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E44"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_005", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #5"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_005", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #5"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E45"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_006", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #6"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_006", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #6"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E46"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_007", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #7"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_007", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #7"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E47"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_008", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #8"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_008", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #8"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E48"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_009", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #9"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_009", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #9"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E49"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_010", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #10"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_010", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #10"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E4A"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_011", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #11"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_011", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #11"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E4B"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_012", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #12"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_012", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #12"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E4C"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_013", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #13"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_013", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #13"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E4D"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_014", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #14"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_014", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #14"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E4E"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_015", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #15"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_015", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #15"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E4F"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_016", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #16"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_016", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #16"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E50"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_017", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #17"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_017", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #17"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E51"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_018", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #18"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_018", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #18"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E52"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_019", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #19"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_019", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #19"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E53"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_020", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #20"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_020", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #20"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E54"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_021", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #21"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_021", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #21"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E55"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_022", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #22"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_022", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #22"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E56"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_023", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #23"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_023", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #23"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E57"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_024", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #24"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_024", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #24"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E58"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_025", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #25"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_025", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #25"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E59"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_026", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #26"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_026", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #26"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E5A"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_027", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #27"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_027", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #27"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E5B"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_028", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #28"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_028", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #28"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E5C"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_029", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #29"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_029", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #29"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E5D"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_030", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #30"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_030", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #30"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E5E"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_031", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #31"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_031", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #31"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E5F"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_032", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #32"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_032", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #32"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E60"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_033", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #33"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_033", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #33"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E61"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_034", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #34"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_034", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #34"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E62"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_035", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #35"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_035", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #35"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E63"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_036", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #36"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_036", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #36"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E64"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_037", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #37"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_037", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #37"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E65"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_038", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #38"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_038", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #38"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E66"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_039", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #39"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_039", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #39"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E67"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_040", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #40"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_040", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #40"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E68"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_041", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #41"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_041", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #41"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E69"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_042", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #42"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_042", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #42"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E6A"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_043", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #43"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_043", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #43"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E6B"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_044", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #44"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_044", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #44"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E6C"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_045", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #45"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_045", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #45"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E6D"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_046", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #46"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_046", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #46"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E6E"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_047", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #47"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_047", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #47"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E6F"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_048", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #48"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_048", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #48"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E70"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_049", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #49"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_049", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #49"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E71"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_050", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #50"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_050", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #50"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E72"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_051", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #51"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_051", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #51"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E73"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_052", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #52"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_052", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #52"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E74"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_053", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #53"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_053", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #53"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E75"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_054", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #54"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_054", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #54"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E76"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_055", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #55"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_055", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #55"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E77"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_056", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #56"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_056", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #56"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E78"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_057", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #57"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_057", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #57"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E79"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_058", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #58"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_058", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #58"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E7A"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_059", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #59"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_059", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #59"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E7B"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_060", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #60"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_060", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #60"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E7C"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_061", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #61"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_061", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #61"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E7D"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_062", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #62"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_062", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #62"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E7E"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_063", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #63"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_063", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #63"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E7F"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_064", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #64"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_064", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #64"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E80"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_065", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #65"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_065", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #65"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E81"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_066", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #66"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_066", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #66"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E82"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_067", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #67"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_067", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #67"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E83"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_068", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #68"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_068", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #68"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E84"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_069", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #69"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_069", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #69"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E85"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_070", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #70"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_070", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #70"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E86"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_071", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #71"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_071", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #71"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E87"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_072", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #72"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_072", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #72"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E88"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_073", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #73"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_073", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #73"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E89"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_074", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #74"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_074", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #74"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E8A"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_075", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #75"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_075", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #75"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E8B"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_076", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #76"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_076", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #76"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E8C"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_077", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #77"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_077", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #77"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E8D"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_078", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #78"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_078", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #78"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E8E"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_079", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #79"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_079", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #79"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E8F"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_080", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #80"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_080", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #80"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E90"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_081", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #81"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_081", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #81"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E91"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_082", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #82"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_082", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #82"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E92"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_083", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #83"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_083", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #83"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E93"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_084", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #84"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_084", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #84"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E94"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_085", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #85"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_085", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #85"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E95"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_086", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #86"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_086", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #86"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E96"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_087", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #87"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_087", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #87"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E97"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_088", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #88"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_088", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #88"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E98"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_089", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #89"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_089", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #89"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E99"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_090", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #90"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_090", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #90"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E9A"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_091", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #91"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_091", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #91"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E9B"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_092", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #92"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_092", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #92"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E9C"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_093", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #93"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_093", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #93"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E9D"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_094", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #94"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_094", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #94"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E9E"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_095", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #95"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_095", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #95"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1E9F"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_096", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #96"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_096", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #96"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA0"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_097", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #97"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_097", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #97"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA1"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_098", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #98"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_098", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #98"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA2"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_099", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #99"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_099", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #99"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA3"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_100", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #100"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_100", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #100"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA4"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_101", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #101"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_101", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #101"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA5"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_102", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #102"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_102", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #102"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA6"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_103", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #103"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_103", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #103"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA7"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_104", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #104"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_104", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #104"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA8"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_105", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #105"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_105", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #105"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EA9"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_106", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #106"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_106", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #106"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EAA"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_107", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #107"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_107", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #107"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EAB"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_CELL_V_108", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "unit": "volts" }, "name": "HV battery cell voltage, #108"}
+    {"id": "VOLKSWAGEN_HVBAT_CELL_V_108", "path": "Battery.Cells", "fmt": { "len": 16, "max": 4.5, "min": 3, "div": 1000, "add": 1, "nullmax": 4.5, "unit": "volts" }, "name": "HV battery cell voltage, #108"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "1EAE"}, "freq": 1,
   "signals": [
@@ -8862,7 +8884,7 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7C", "dbg": true, "cmd": {"22": "40C8"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_ELDRIVE_MOTOR_RAD_SEC", "path": "Movement", "fmt": { "len": 32, "max": 1000, "unit": "scalar" }, "name": "Electric drive motor speed (rad/sec)"}
+    {"id": "VOLKSWAGEN_ELDRIVE_MOTOR_RAD_SEC", "path": "Movement", "fmt": { "len": 32, "max": 1000, "unit": "scalar" }, "name": "Electric drive motor angular speed"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7C", "dbg": true, "cmd": {"22": "43B9"}, "freq": 1,
   "signals": [
@@ -8870,7 +8892,7 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7C", "dbg": true, "cmd": {"22": "4657"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_ELDRIVE_MOTOR_FREQ", "path": "Drivetrain", "fmt": { "len": 32, "max": 1000, "unit": "scalar" }, "name": "Motor electrical frequency (rad/sec)"}
+    {"id": "VOLKSWAGEN_ELDRIVE_MOTOR_FREQ", "path": "Drivetrain", "fmt": { "len": 32, "max": 1000, "unit": "scalar" }, "name": "Motor electrical angular frequency"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7C", "dbg": true, "cmd": {"22": "4672"}, "freq": 1,
   "signals": [
@@ -8890,7 +8912,7 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "fcm1": true, "dbg": true, "cmd": {"22": "5867"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_ODO_BMS2", "path": "Trips", "fmt": {"bix": 16, "len": 16, "max": 655350, "mul": 10, "unit": "kilometers" }, "name": "Odometer, BMS #2", "suggestedMetric": "odometer"}
+    {"id": "VOLKSWAGEN_ODO_BMS2", "path": "Trips", "fmt": {"bix": 16, "len": 16, "max": 655350, "mul": 10, "unit": "kilometers" }, "name": "Odometer, battery management system #2", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7C", "dbg": true, "cmd": {"22": "58E1"}, "freq": 1,
   "signals": [
@@ -8902,31 +8924,31 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "7426"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_MOD_T_18", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "celsius" }, "name": "HV battery module temperature, #18"}
+    {"id": "VOLKSWAGEN_HVBAT_MOD_T_18", "path": "Battery", "fmt": { "len": 16, "max": 8151.875, "min": -40, "div": 8, "add": -40, "unit": "celsius" }, "name": "HV battery module temperature, #18"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "7427"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_MOD_T_19", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "celsius" }, "name": "HV battery module temperature, #19"}
+    {"id": "VOLKSWAGEN_HVBAT_MOD_T_19", "path": "Battery", "fmt": { "len": 16, "max": 8151.875, "min": -40, "div": 8, "add": -40, "unit": "celsius" }, "name": "HV battery module temperature, #19"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "7428"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_MOD_T_20", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "celsius" }, "name": "HV battery module temperature, #20"}
+    {"id": "VOLKSWAGEN_HVBAT_MOD_T_20", "path": "Battery", "fmt": { "len": 16, "max": 8151.875, "min": -40, "div": 8, "add": -40, "unit": "celsius" }, "name": "HV battery module temperature, #20"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "7429"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_MOD_T_21", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "celsius" }, "name": "HV battery module temperature, #21"}
+    {"id": "VOLKSWAGEN_HVBAT_MOD_T_21", "path": "Battery", "fmt": { "len": 16, "max": 8151.875, "min": -40, "div": 8, "add": -40, "unit": "celsius" }, "name": "HV battery module temperature, #21"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "742A"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_MOD_T_22", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "celsius" }, "name": "HV battery module temperature, #22"}
+    {"id": "VOLKSWAGEN_HVBAT_MOD_T_22", "path": "Battery", "fmt": { "len": 16, "max": 8151.875, "min": -40, "div": 8, "add": -40, "unit": "celsius" }, "name": "HV battery module temperature, #22"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "742B"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_MOD_T_23", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "celsius" }, "name": "HV battery module temperature, #23"}
+    {"id": "VOLKSWAGEN_HVBAT_MOD_T_23", "path": "Battery", "fmt": { "len": 16, "max": 8151.875, "min": -40, "div": 8, "add": -40, "unit": "celsius" }, "name": "HV battery module temperature, #23"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "742C"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_MOD_T_24", "path": "Battery", "fmt": { "len": 16, "max": 65535, "unit": "celsius" }, "name": "HV battery module temperature, #24"}
+    {"id": "VOLKSWAGEN_HVBAT_MOD_T_24", "path": "Battery", "fmt": { "len": 16, "max": 8151.875, "min": -40, "div": 8, "add": -40, "unit": "celsius" }, "name": "HV battery module temperature, #24"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7B", "dbg": true, "cmd": {"22": "743B"}, "freq": 1,
   "signals": [
