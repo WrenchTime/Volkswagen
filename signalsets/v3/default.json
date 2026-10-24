@@ -190,7 +190,8 @@
   ]},
 { "hdr": "70F", "rax": "779", "fcm1": true, "dbg": true, "cmd": {"22": "13ED"}, "freq": 0.25,
   "signals": [
-    {"id": "VOLKSWAGEN_CPL_CLU_TQ", "path": "Transmission", "fmt": { "len": 16, "max": 65535, "unit": "percent" }, "name": "Coupling clutch torque"}
+    {"id": "VOLKSWAGEN_CPL_CLU_TQ", "path": "Transmission", "fmt": { "len": 16, "max": 65535, "unit": "scalar"  }, "name": "Coupling clutch torque, raw"},
+    {"id": "VOLKSWAGEN_CLU_TQ",     "path": "Transmission", "fmt": { "len": 16, "max": 65535, "unit": "percent" }, "name": "Clutch torque %"}
   ]},
 { "hdr": "70F", "rax": "779", "fcm1": true, "dbg": true, "cmd": {"22": "1800"}, "freq": 1,
   "signals": [
@@ -1060,7 +1061,7 @@
 { "hdr": "767", "rax": "7D1", "fcm1": true, "dbg": true, "cmd": {"22": "0838"}, "freq": 1,
   "signals": [
     {"id": "VOLKSWAGEN_ECALL_BATTERY_CHARGE_STATUS", "path": "Battery", "fmt": {          "len": 8, "max": 100, "unit": "scalar"  }, "name": "Ecall battery charge status"},
-    {"id": "VOLKSWAGEN_ECALL_BAT_CRIT",              "path": "Battery", "fmt": {          "len": 8, "max": 100, "unit": "percent" }, "name": "Emergency call battery critical status"},
+    {"id": "VOLKSWAGEN_MQB_ECALL_BAT_CRIT",          "path": "Battery", "fmt": {          "len": 8, "max": 100, "unit": "percent" }, "name": "Emergency call battery critical status"},
     {"id": "VOLKSWAGEN_ECALL_BATTERY_CHARGE_LEVEL",  "path": "Battery", "fmt": {"bix": 8, "len": 8, "max": 100, "unit": "percent" }, "name": "Ecall battery charge level"},
     {"id": "VOLKSWAGEN_ECALL_STATUS", "path": "Battery", "name": "ECall battery status", "fmt": {"len": 8, "map": {
           "1": { "description": "CRITICAL", "value": "CRITICAL" },
@@ -1117,10 +1118,12 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "028D"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_ENG_CTRL_MODULE_T",   "path": "Engine", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10,                "sign": true, "unit": "celsius" }, "name": "Engine control module temperature"},
-    {"id": "VOLKSWAGEN_ENG_CTRL_MODULE_T_K", "path": "Engine", "fmt": { "len": 16, "max": 6280.4, "min": -273.1,  "div": 10, "add": -273.1,               "unit": "celsius" }, "name": "Engine control module temperature"},
-    {"id": "VOLKSWAGEN_ECU_TEMP",            "path": "Engine", "fmt": { "len": 16, "max": 500,    "min": -500,    "div": 10,                "sign": true, "unit": "celsius" }, "name": "Control module temperature"},
-    {"id": "VOLKSWAGEN_ECU_TEMP_KELVIN",     "path": "Engine", "fmt": { "len": 16, "max": 150,    "min": -40,     "div": 10, "add": -273.1, "sign": true, "unit": "celsius" }, "name": "Control module temperature"}
+    {"id": "VOLKSWAGEN_ENG_CTRL_MODULE_T",   "path": "Engine", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10,                "sign": true,                    "unit": "celsius" }, "name": "Engine control module temperature"},
+    {"id": "VOLKSWAGEN_ENG_CTRL_MODULE_T_K", "path": "Engine", "fmt": { "len": 16, "max": 6280.4, "min": -273.1,  "div": 10, "add": -273.1,                                  "unit": "celsius" }, "name": "Engine control module temperature"},
+    {"id": "VOLKSWAGEN_ECU_TEMP",            "path": "Engine", "fmt": { "len": 16, "max": 500,    "min": -500,    "div": 10,                "sign": true,                    "unit": "celsius" }, "name": "Control module temperature"},
+    {"id": "VOLKSWAGEN_ECM_T",               "path": "Engine", "fmt": { "len": 16, "max": 6280.4, "min": -273.1,  "div": 10, "add": -273.1,               "nullmin": -273.1, "unit": "celsius" }, "name": "Engine control module temperature"},
+    {"id": "VOLKSWAGEN_ECM_T_RAW",           "path": "Engine", "fmt": { "len": 16, "max": 65535,                                                                             "unit": "scalar"  }, "name": "Engine control module temperature, raw 16-bit"},
+    {"id": "VOLKSWAGEN_ECU_TEMP_KELVIN",     "path": "Engine", "fmt": { "len": 16, "max": 150,    "min": -40,     "div": 10, "add": -273.1, "sign": true,                    "unit": "celsius" }, "name": "Control module temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0802"}, "freq": 1,
   "signals": [
@@ -1787,7 +1790,8 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1135"}, "freq": 1,
   "signals": [
     {"id": "VOLKSWAGEN_COOLANT_T",       "path": "Engine", "fmt": { "len": 16, "max": 6280.4, "min": -273.1, "div": 10, "add": -273.1, "unit": "celsius" }, "name": "Coolant temperature at radiator outlet"},
-    {"id": "VOLKSWAGEN_EARLY_COOLANT_T", "path": "Engine", "fmt": { "len": 16, "max": 300,                   "div": 10,                "unit": "celsius" }, "name": "Coolant temperature at radiator outlet"}
+    {"id": "VOLKSWAGEN_EARLY_COOLANT_T", "path": "Engine", "fmt": { "len": 16, "max": 300,                   "div": 10,                "unit": "celsius" }, "name": "Coolant temperature at radiator outlet"},
+    {"id": "VOLKSWAGEN_COOLANT_T_RAW",   "path": "Engine", "fmt": { "len": 16, "max": 65535,                                           "unit": "scalar"  }, "name": "Coolant temperature at radiator outlet, raw"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1136"}, "freq": 1,
   "signals": [
@@ -2091,10 +2095,10 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "11BE"}, "freq": 5,
   "signals": [
     {"id": "VOLKSWAGEN_PQ35_OIL_T_2", "path": "Engine", "fmt": { "len": 16, "max": 32767, "min": -32768,                             "sign": true, "unit": "celsius" }, "name": "Oil temperature variant"},
-    {"id": "VOLKSWAGEN_PQ46_OIL_T_2", "path": "Engine", "fmt": { "len": 16, "max": 6280,  "min": -273.15, "div": 10, "add": -273.15,               "unit": "celsius" }, "name": "Oil temperature variant",            "suggestedMetric": "engineOilTemperature"},
+    {"id": "VOLKSWAGEN_PQ46_OIL_T_2", "path": "Engine", "fmt": { "len": 16, "max": 6280,  "min": -273.15, "div": 10, "add": -273.15,               "unit": "celsius" }, "name": "Oil temperature variant",      "suggestedMetric": "engineOilTemperature"},
     {"id": "VOLKSWAGEN_ECM_11BE_RAW", "path": "Engine", "fmt": { "len": 8,  "max": 255,                                                            "unit": "scalar"  }, "name": "Engine module 11BE, raw"},
-    {"id": "VOLKSWAGEN_EOT_V2",       "path": "Engine", "fmt": { "len": 16, "max": 65535,                                                          "unit": "scalar"  }, "name": "Engine oil temperature",             "description": "Scaling is unknown, needs further validation."},
-    {"id": "VOLKSWAGEN_11BE_RAW",     "path": "Engine", "fmt": { "len": 16, "max": 32767, "min": -32768,                             "sign": true, "unit": "scalar"  }, "name": "Engine read 11BE, signed raw count"}
+    {"id": "VOLKSWAGEN_OIL_T_2_RAW",  "path": "Engine", "fmt": { "len": 16, "max": 32767, "min": -32768,                             "sign": true, "unit": "scalar"  }, "name": "Oil temperature variant, raw"},
+    {"id": "VOLKSWAGEN_EOT_V2",       "path": "Engine", "fmt": { "len": 16, "max": 65535,                                                          "unit": "scalar"  }, "name": "Engine oil temperature",       "description": "Scaling is unknown, needs further validation."}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "11BF"}, "freq": 1,
   "signals": [
@@ -2124,7 +2128,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "11CD"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_TCO_1_SYS", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "TCO_1_SYS"}
+    {"id": "VOLKSWAGEN_TCO_1_SYS",     "path": "Engine", "fmt": { "len": 8,  "max": 215,   "min": -40, "add": -40, "unit": "celsius" }, "name": "TCO_1_SYS"},
+    {"id": "VOLKSWAGEN_TCO_1_SYS_RAW", "path": "Engine", "fmt": { "len": 16, "max": 65535,                         "unit": "scalar"  }, "name": "TCO_1_SYS, raw 16-bit"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "11CE"}, "freq": 1,
   "signals": [
@@ -2521,7 +2526,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "pri": "17", "fcm1": true, "dbg": true, "cmd": {"22": "13A0"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_COOLANT_T_MODELED_VALUE", "path": "Engine", "fmt": { "len": 16, "max": 3003.6, "min": -3549.9, "div": 10, "add": -273.1, "sign": true, "unit": "celsius" }, "name": "Coolant temperature modeled value"}
+    {"id": "VOLKSWAGEN_COOLANT_T_MODELED_VALUE",     "path": "Engine", "fmt": { "len": 16, "max": 3003.6, "min": -3549.9, "div": 10, "add": -273.1, "sign": true, "unit": "celsius" }, "name": "Coolant temperature modeled value"},
+    {"id": "VOLKSWAGEN_COOLANT_T_MODELED_VALUE_RAW", "path": "Engine", "fmt": { "len": 8,  "max": 255,                                                            "unit": "scalar"  }, "name": "Coolant temperature modeled value, one byte, raw"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "13A1"}, "freq": 1,
   "signals": [
@@ -3058,8 +3064,8 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "162D"}, "freq": 5,
   "signals": [
     {"id": "VOLKSWAGEN_PQ35_FUEL_T",   "path": "Engine", "fmt": { "len": 16, "max": 300,        "min": -273.1, "div": 10, "add": -273.1, "nullmin": -273.1, "nullmax": 300, "unit": "celsius" }, "name": "Fuel temperature"},
-    {"id": "VOLKSWAGEN_FUEL_T_7E0_V2", "path": "Engine", "fmt": { "len": 16, "max": 300,        "min": -40,    "div": 10, "add": -273.1, "nullmin": -40,    "nullmax": 300, "unit": "celsius" }, "name": "Fuel temperature"},
-    {"id": "VOLKSWAGEN_162D_RAW",      "path": "Engine", "fmt": { "len": 32, "max": 4294967295,                                                                             "unit": "scalar"  }, "name": "Engine read 162D, raw count"}
+    {"id": "VOLKSWAGEN_FUEL_T_RAW",    "path": "Engine", "fmt": { "len": 32, "max": 4294967295,                                                                             "unit": "scalar"  }, "name": "Fuel temperature read, raw"},
+    {"id": "VOLKSWAGEN_FUEL_T_7E0_V2", "path": "Engine", "fmt": { "len": 16, "max": 300,        "min": -40,    "div": 10, "add": -273.1, "nullmin": -40,    "nullmax": 300, "unit": "celsius" }, "name": "Fuel temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "din": "03", "dbg": true, "cmd": {"22": "162F"}, "freq": 1,
   "signals": [
@@ -3287,7 +3293,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1798"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_MQB_CHARGE_AIR_T_TUBROCHARGER_OUTLET_CALCULATED", "path": "Battery", "fmt": { "len": 16, "max": 3003.6, "min": -273.1, "mul": 1000, "div": 10000, "add": -273.1, "sign": true, "nullmin": -273.1, "unit": "celsius" }, "name": "Charge air temp at the turbocharger outlet, calculated"}
+    {"id": "VOLKSWAGEN_MQB_CHARGE_AIR_T_TUBROCHARGER_OUTLET_CALCULATED",     "path": "Battery", "fmt": { "len": 16, "max": 3003.6, "min": -273.1, "mul": 1000, "div": 10000, "add": -273.1, "sign": true, "nullmin": -273.1, "unit": "celsius" }, "name": "Charge air temp at the turbocharger outlet, calculated"},
+    {"id": "VOLKSWAGEN_MQB_CHARGE_AIR_T_TUBROCHARGER_OUTLET_CALCULATED_RAW", "path": "Battery", "fmt": { "len": 16, "max": 65535,                                                                                            "unit": "scalar"  }, "name": "Charge air temp at the turbocharger outlet, calculated, raw"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "179C"}, "freq": 5,
   "signals": [
@@ -3759,7 +3766,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "20A1"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_PQ35_CALCULATED_OIL_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Calculated oil temperature", "suggestedMetric": "engineOilTemperature"}
+    {"id": "VOLKSWAGEN_PQ35_CALCULATED_OIL_T",        "path": "Engine", "fmt": { "len": 8,  "max": 215,    "min": -40,                "add": -40,               "unit": "celsius" }, "name": "Calculated oil temperature", "suggestedMetric": "engineOilTemperature"},
+    {"id": "VOLKSWAGEN_PQ35_CALCULATED_OIL_T_TENTHS", "path": "Engine", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10,             "sign": true, "unit": "celsius" }, "name": "Calculated oil temperature", "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "20A2"}, "freq": 1,
   "signals": [
@@ -5582,8 +5590,9 @@
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "1196"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_MQB_TCM_HYBRID_T", "path": "Engine", "fmt": { "len": 16, "max": 65535,      "unit": "celsius" }, "name": "Hybrid temperature"},
-    {"id": "VOLKSWAGEN_TCM_1196_RAW",     "path": "Engine", "fmt": { "len": 32, "max": 4294967295, "unit": "scalar"  }, "name": "Transmission read 1196, raw count"}
+    {"id": "VOLKSWAGEN_MQB_TCM_HYBRID_T", "path": "Engine", "fmt": { "len": 16, "max": 65535,                                               "unit": "celsius" }, "name": "Hybrid temperature"},
+    {"id": "VOLKSWAGEN_HYBRID_T",         "path": "Engine", "fmt": { "len": 16, "max": 3276.7,     "min": -3276.8, "div": 10, "sign": true, "unit": "celsius" }, "name": "Hybrid temperature"},
+    {"id": "VOLKSWAGEN_TCM_1196_RAW",     "path": "Engine", "fmt": { "len": 32, "max": 4294967295,                                          "unit": "scalar"  }, "name": "Transmission read 1196, raw count"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "11A7"}, "freq": 3600,
   "signals": [
@@ -6256,7 +6265,7 @@
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "180A"}, "freq": 1,
   "signals": [
-    {"id": "VOLKSWAGEN_HVBAT_V_180A", "path": "Battery", "fmt": { "len": 16, "max": 6553, "div": 10, "unit": "volts" }, "name": "HV battery voltage, measurement 2", "description": "Reads within 1 V of the pack voltage on 1801; which point of the pack it measures is not known."}
+    {"id": "VOLKSWAGEN_HVBAT_V_180A", "path": "Battery", "fmt": { "len": 16, "max": 6553.5, "div": 10, "nullmax": 6553.4, "unit": "volts" }, "name": "HV battery voltage, measurement 2", "description": "Reads within 1 V of the pack voltage on 1801; which point of the pack it measures is not known."}
   ]},
 { "hdr": "7E5", "rax": "7ED", "dbg": true, "cmd": {"22": "180B"}, "freq": 1,
   "signals": [
