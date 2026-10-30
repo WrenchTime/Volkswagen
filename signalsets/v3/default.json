@@ -251,10 +251,11 @@
   ]},
 { "hdr": "710", "dbg": true, "cmd": {"22": "2A0A"}, "freq": 30,
   "signals": [
-    {"id": "VOLKSWAGEN_ODO_2",   "path": "Trips",   "fmt": {          "len": 32, "max": 255,                              "unit": "kilometers" }, "name": "Odometer (alternative)",     "suggestedMetric": "odometer"},
-    {"id": "VOLKSWAGEN_BAT_T",   "path": "Battery", "fmt": {          "len": 8,  "max": 215,      "min": -40, "add": -40, "unit": "celsius"    }, "name": "Battery sensor temperature"},
-    {"id": "VOLKSWAGEN_ODO_V2",  "path": "Trips",   "fmt": {"bix": 8, "len": 24, "max": 16777175, "min": -40, "add": -40, "unit": "kilometers" }, "name": "Odometer",                   "suggestedMetric": "odometer"},
-    {"id": "VOLKSWAGEN_MQB_ODO", "path": "Trips",   "fmt": {"bix": 8, "len": 24, "max": 16777175,                         "unit": "kilometers" }, "name": "Odometer",                   "suggestedMetric": "odometer"}
+    {"id": "VOLKSWAGEN_ODO_2",   "path": "Trips",   "fmt": {          "len": 32, "max": 255,                                "unit": "kilometers" }, "name": "Odometer (alternative)",     "suggestedMetric": "odometer"},
+    {"id": "VOLKSWAGEN_BAT_T",   "path": "Battery", "fmt": {          "len": 8,  "max": 215,        "min": -40, "add": -40, "unit": "celsius"    }, "name": "Battery sensor temperature"},
+    {"id": "VOLKSWAGEN_ODO",     "path": "Trips",   "fmt": {          "len": 32, "max": 4294967295,                         "unit": "kilometers" }, "name": "Odometer",                   "suggestedMetric": "odometer"},
+    {"id": "VOLKSWAGEN_ODO_V2",  "path": "Trips",   "fmt": {"bix": 8, "len": 24, "max": 16777175,   "min": -40, "add": -40, "unit": "kilometers" }, "name": "Odometer",                   "suggestedMetric": "odometer"},
+    {"id": "VOLKSWAGEN_MQB_ODO", "path": "Trips",   "fmt": {"bix": 8, "len": 24, "max": 16777175,                           "unit": "kilometers" }, "name": "Odometer",                   "suggestedMetric": "odometer"}
   ]},
 { "hdr": "710", "rax": "77A", "fcm1": true, "dbg": true, "cmd": {"22": "123A"}, "freq": 1,
   "signals": [
@@ -387,8 +388,16 @@
   ]},
 { "hdr": "710", "rax": "77A", "fcm1": true, "dbg": true, "cmd": {"22": "2AB6"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_RANGE_V2", "path": "Trips", "fmt": { "len": 16, "max": 65535, "unit": "miles" }, "name": "Range remaining"},
-    {"id": "VOLKSWAGEN_RANGE_V2", "path": "Trips", "fmt": { "len": 16, "max": 65535, "unit": "miles" }, "name": "Range remaining, displayed", "suggestedMetric": "electricRange"}
+    {"id": "VOLKSWAGEN_RANGE_V2",        "path": "Trips", "fmt": {           "len": 16, "max": 65535,                  "unit": "miles"  }, "name": "Range remaining"},
+    {"id": "VOLKSWAGEN_RANGE_V2",        "path": "Trips", "fmt": {           "len": 16, "max": 65535,                  "unit": "miles"  }, "name": "Range remaining, displayed",                   "suggestedMetric": "electricRange"},
+    {"id": "VOLKSWAGEN_RANGE_TOTAL_RAW", "path": "Trips", "fmt": {           "len": 16, "max": 2045,  "nullmax": 2045, "unit": "scalar" }, "name": "Total range, in the cluster's unit"},
+    {"id": "VOLKSWAGEN_RANGE_PRI_RAW",   "path": "Trips", "fmt": {"bix": 16, "len": 16, "max": 2045,  "nullmax": 2045, "unit": "scalar" }, "name": "Primary drive range, in the cluster's unit"},
+    {"id": "VOLKSWAGEN_RANGE_SEC_RAW",   "path": "Trips", "fmt": {"bix": 32, "len": 16, "max": 2045,  "nullmax": 2045, "unit": "scalar" }, "name": "Secondary drive range, in the cluster's unit"},
+    {"id": "VOLKSWAGEN_RANGE_UNIT", "path": "Trips", "name": "Range distance unit", "fmt": {"bix": 55, "len": 1, "map": {
+          "0": { "description": "Kilometers", "value": "KM" },
+          "1": { "description": "Miles",      "value": "MI" }
+        }}
+    }
   ]},
 { "hdr": "710", "rax": "77A", "fcm1": true, "dbg": true, "cmd": {"22": "2AB7"}, "freq": 5,
   "signals": [
@@ -579,7 +588,7 @@
   "signals": [
     {"id": "VOLKSWAGEN_ODO_DASH", "path": "Trips", "fmt": { "len": 24, "max": 255,                 "unit": "kilometers" }, "name": "Odometer (dash)", "suggestedMetric": "odometer"},
     {"id": "VOLKSWAGEN_PQ35_ODO", "path": "Trips", "fmt": { "len": 16, "max": 655350,   "mul": 10, "unit": "kilometers" }, "name": "Odometer",        "suggestedMetric": "odometer"},
-    {"id": "VOLKSWAGEN_ODO",      "path": "Trips", "fmt": { "len": 24, "max": 16777215,            "unit": "kilometers" }, "name": "Odometer",        "suggestedMetric": "odometer"}
+    {"id": "VOLKSWAGEN_ODO_V2",   "path": "Trips", "fmt": { "len": 24, "max": 16777215,            "unit": "kilometers" }, "name": "Odometer",        "suggestedMetric": "odometer"}
   ]},
 { "hdr": "714", "dbg": true, "cmd": {"22": "2294"}, "freq": 30,
   "signals": [
@@ -1110,7 +1119,7 @@
   ]},
 { "hdr": "7E0", "dbg": true, "cmd": {"22": "295A"}, "freq": 30,
   "signals": [
-    {"id": "VOLKSWAGEN_ODO_V2",      "path": "Trips", "fmt": { "len": 24, "max": 16777215,                       "unit": "kilometers" }, "name": "Odometer",               "suggestedMetric": "odometer"},
+    {"id": "VOLKSWAGEN_ODO_V3",      "path": "Trips", "fmt": { "len": 24, "max": 16777215,                       "unit": "kilometers" }, "name": "Odometer",               "suggestedMetric": "odometer"},
     {"id": "VOLKSWAGEN_ODO_ECM",     "path": "Trips", "fmt": { "len": 24, "max": 1048575,    "nullmax": 1048575, "unit": "kilometers" }, "name": "Odometer",               "suggestedMetric": "odometer"},
     {"id": "VOLKSWAGEN_ODO_7E0_2",   "path": "Trips", "fmt": { "len": 24, "max": 16777215,   "nullmax": 1048575, "unit": "kilometers" }, "name": "Odometer",               "suggestedMetric": "odometer"},
     {"id": "VOLKSWAGEN_ODO_2_V2",    "path": "Trips", "fmt": { "len": 32, "max": 4294967295,                     "unit": "kilometers" }, "name": "Odometer (alternative)", "suggestedMetric": "odometer"},
@@ -1518,7 +1527,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10E0"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_ODO_V3",       "path": "Trips",  "fmt": { "len": 32, "max": 4000000000,                              "unit": "kilometers" }, "name": "Odometer",                           "suggestedMetric": "odometer"},
+    {"id": "VOLKSWAGEN_ODO_V4",       "path": "Trips",  "fmt": { "len": 32, "max": 4000000000,                              "unit": "kilometers" }, "name": "Odometer",                           "suggestedMetric": "odometer"},
     {"id": "VOLKSWAGEN_ECM_10E0_RAW", "path": "Engine", "fmt": { "len": 16, "max": 65535,                                   "unit": "scalar"     }, "name": "Engine module 10E0, raw"},
     {"id": "VOLKSWAGEN_10E0_RAW",     "path": "Engine", "fmt": { "len": 16, "max": 32767,      "min": -32768, "sign": true, "unit": "scalar"     }, "name": "Engine read 10E0, signed raw count"},
     {"id": "VOLKSWAGEN_ODO_2_2",      "path": "Trips",  "fmt": { "len": 32, "max": 4294967295,                              "unit": "kilometers" }, "name": "Odometer, alternative",              "suggestedMetric": "odometer"}
@@ -8227,7 +8236,7 @@
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7C", "dbg": true, "cmd": {"22": "086D"}, "freq": 5,
   "signals": [
-    {"id": "VOLKSWAGEN_ODO_V4", "path": "Trips", "fmt": { "len": 32, "max": 4294967295, "unit": "kilometers" }, "name": "Odometer, electric drive", "suggestedMetric": "odometer"}
+    {"id": "VOLKSWAGEN_ODO_V5", "path": "Trips", "fmt": { "len": 32, "max": 4294967295, "unit": "kilometers" }, "name": "Odometer, electric drive", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "FC00", "rax": "FE007B", "pri": "17", "tst": "7C", "dbg": true, "cmd": {"22": "1007"}, "freq": 1,
   "signals": [
