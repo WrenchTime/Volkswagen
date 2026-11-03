@@ -609,6 +609,10 @@
     {"id": "VOLKSWAGEN_IAT",     "path": "Climate", "fmt": { "len": 16, "max": 255,  "div": 10, "unit": "celsius" }, "name": "Interior air temperature"},
     {"id": "VOLKSWAGEN_CABIN_T", "path": "Engine",  "fmt": { "len": 16, "max": 6553, "div": 10, "unit": "celsius" }, "name": "Cabin temperature"}
   ]},
+{ "hdr": "714", "rax": "77E", "fcm1": true, "dbg": true, "cmd": {"22": "02BD"}, "freq": 30,
+  "signals": [
+    {"id": "VOLKSWAGEN_ODO_V6", "path": "Trips", "fmt": {"bix": 48, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+  ]},
 { "hdr": "714", "rax": "77E", "fcm1": true, "dbg": true, "cmd": {"22": "0530"}, "freq": 0.5,
   "signals": [
     {"id": "VOLKSWAGEN_TRIP_USE_SHORT", "path": "Trips", "fmt": {"bix": 238, "len": 18, "max": 131, "min": -131, "div": 1000, "sign": true, "unit": "kilowattHoursPer100Miles" }, "name": "Trip consumption, short"}
